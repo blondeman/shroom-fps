@@ -1,0 +1,6 @@
+Game will be a DOOM clone called SHROOM
+song will be e1m1 with delay lama
+shoot spores at mushrooms to grow them
+shoot enemies that try to eat them
+little guy in the bottom to show your health
+health gets lowered when an enemy eats your shrooms

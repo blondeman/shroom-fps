@@ -1,0 +1,35 @@
+
+    A menu with at least two buttons
+        One must start the game by loading the first level
+        One must quit the game and close the application
+    A first-person character controller with any mobile control UI removed
+    A health system that
+        Displays the current health of the player (i.e. 100/100) as a UI element
+        Reduces the player's health whenever they receive damage (i.e. from an enemy attack, by entering a hazard zone, etc.).
+        Displays a “Game Over” screen whenever the player reaches 0 or less health
+            This screen should also have two buttons
+                Restart, which resets the current scene
+                Quit, which returns to the main menu scene
+    A projectile or raycast interaction system. The exact nature of this system is up to you, but it must:
+        Use projectiles or raycasts
+        Upon hitting another object of interest, affect that object in some way. For example:
+            Deal damage to an enemy
+            Allow the player to “pick up” an object by handing it to them
+    Locked doors that open when the player has completed a goal (i.e., killing all enemies in a room, bringing a key from one location to another, etc.).
+    Minimum 3 levels
+        The first one should be loaded when the player presses the Play/Start button in the menu
+        The other two must automatically load when the player completes a goal
+            This could be getting to the end of the level, collecting powerups, etc.
+        Each level must contain geometry that the player can jump around on
+        After completing the last level, the game must automatically load the menu
+
+ 
+
+For the final submission, you will need to upload a .zip archive with the following:
+
+    A folder with an executable version of your project for Windows (if you do not submit a Windows .exe with the associated .dll and data files/folders then you will receive a zero!)
+    A PDF with:
+        A link to a Github Repo or cloud drive link containing your Unity project files (i.e. the folder of files that you open with Unity)
+        A link to a video of your final game running (this must be a screen capture using something like OBS, if you upload a phone video of your PC screen you will receive a zero on this assignment)
+        A maximum 1 page discussion on how you interpreted the theme as well as any other relevant notes on how to play (i.e. control scheme). 
+    If you use any assets from the asset store or from other online resources please also provide a list of links to these resources.
