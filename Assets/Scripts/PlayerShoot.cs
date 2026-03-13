@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public ParticleSystem particleSystem;
+    public new ParticleSystem particleSystem;
     public float range;
     public float diameter;
     public Transform tip;
+    public float damage = 10;
     
     void Update()
     {
@@ -13,6 +14,8 @@ public class PlayerShoot : MonoBehaviour
         {
             if (!particleSystem.isEmitting)
                 particleSystem.Play();
+
+            Cast();
         }
         else
         {
@@ -41,7 +44,11 @@ public class PlayerShoot : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            // Handle hits...
+            GameObject other = hit.collider.gameObject;
+            if(other.tag == "Enemy")
+            {
+                other.GetComponent<Health>().TakeDamage(damage);
+            }
         }
     }
 
