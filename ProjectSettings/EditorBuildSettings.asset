@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/L1 MushRoom.unity
+    guid: b9ad663c7e46f744f9d2a7df891ca906
+  - enabled: 1
+    path: Assets/Scenes/L2 Cave.unity
+    guid: 97de938b89b0271448d62b0daf9ca5aa
+  - enabled: 1
+    path: Assets/Scenes/L3 Stump.unity
+    guid: 62cf01c449f7a174dba4cac51036918f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+    public AudioSource audioSource;
     public new ParticleSystem particleSystem;
     public float range;
     public float diameter;
@@ -15,11 +16,15 @@ public class PlayerShoot : MonoBehaviour
             if (!particleSystem.isEmitting)
                 particleSystem.Play();
 
+            if(!audioSource.isPlaying) 
+                audioSource.Play();
+
             Cast();
         }
         else
         {
             particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            audioSource.Stop();
         }
     }
 

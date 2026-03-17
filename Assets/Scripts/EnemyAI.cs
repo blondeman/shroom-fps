@@ -37,6 +37,10 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         RandomRotation();
+        if(!target)
+        {
+            target = FindFirstObjectByType<FirstPersonController>().transform;
+        }
     }
 
     void RandomRotation()
