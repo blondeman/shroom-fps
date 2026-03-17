@@ -81,6 +81,8 @@ MonoBehaviour:
   target: {fileID: 0}
   chaseDistance: 15
   idleRotationSpeed: 70
+  attackDistance: 1
+  attackDamage: 2
 --- !u!114 &7644288939245495611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +98,9 @@ MonoBehaviour:
   maxHealth: 100
   iTime: 0.2
   renderer: {fileID: 5663605074833442023}
+  deathParticle: {fileID: 408283710173465049, guid: c9919b818c0dbaa43883aa66d69730b4, type: 3}
   damageTint: {r: 1, g: 0, b: 0, a: 1}
+  status: {fileID: 0}
 --- !u!1001 &1709555893335824747
 PrefabInstance:
   m_ObjectHideFlags: 0

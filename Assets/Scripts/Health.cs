@@ -10,8 +10,11 @@ public class Health: MonoBehaviour
     float iTimer; 
 
     public new Renderer renderer;
+    public GameObject deathParticle;
     public Color damageTint;
     Color originalColor;
+
+    public StatusUI status;
 
     void Start()
     {
@@ -27,6 +30,7 @@ public class Health: MonoBehaviour
             currentHealth -= damage;
             iTimer = iTime;
             if (renderer) StartCoroutine(DamageTint());
+            if(status) status.SetHealth(currentHealth / maxHealth);
             if (currentHealth <= 0)
             {
                 Die();
@@ -43,7 +47,21 @@ public class Health: MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        if (!status) {
+            GetComponent<CharacterController>().enabled = false;
+            Instantiate(deathParticle, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }else
+        {
+            StartCoroutine(PlayerDie());
+        }
+    }
+
+    private IEnumerator PlayerDie()
+    {
+        //disable controls
+        yield return new WaitForSeconds(3f);
+        //reset
     }
 
     void Update()

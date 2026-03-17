@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     private float _rotationVelocity;
 
     [Header("Jumping & Gravity")]
-    public float gravity      = -18f;  // negative = downward
+    public float gravity = -18f;  // negative = downward
     public float groundedGravity = -2f;
 
     [Header("Target")]
@@ -27,6 +27,10 @@ public class EnemyAI : MonoBehaviour
     private Vector3 velocity = Vector3.zero; // world-space velocity
     private Vector3 moveVelocity = Vector3.zero; // horizontal velocity (smoothed)
     private bool isSprinting  = false;
+
+    [Header("Attack")]
+    public float attackDistance;
+    public float attackDamage;
 
     void Awake()
     {
@@ -53,6 +57,7 @@ public class EnemyAI : MonoBehaviour
         CheckDistance();
         HandleRotation();
         HandleMovement();
+        HandleAttack();
     }
 
     void CheckDistance()
@@ -113,5 +118,14 @@ public class EnemyAI : MonoBehaviour
         
         float currentSpeed = cc.velocity.magnitude;
         anim.SetFloat("Speed", Mathf.Clamp01(currentSpeed / sprintSpeed));
+    }
+
+    void HandleAttack()
+    {
+        bool inAttackRange = Vector3.Distance(transform.position, target.position) < attackDistance;
+        if(inAttackRange)
+        {
+            target.GetComponent<Health>().TakeDamage(attackDamage);
+        }
     }
 }

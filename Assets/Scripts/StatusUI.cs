@@ -8,7 +8,10 @@ public class StatusUI : MonoBehaviour
     public Sprite[] sprites;
     public Sprite[] blinkSprites;
 
-    public int damageLevel = 0;
+    int damageLevel = 0;
+    public float thresholdLevel1 = 0.5f;
+    public float thresholdLevel2 = 0.3f;
+    public Image healthFill;
 
     public float blinkInterval = 4f;
     float blinkTimer = 0;
@@ -45,5 +48,24 @@ public class StatusUI : MonoBehaviour
         profile.sprite = blinkSprites[damageLevel];
         yield return new WaitForSeconds(0.3f);
         profile.sprite = sprites[damageLevel];
+    }
+
+    public void SetHealth(float percentage)
+    {
+        int lastLevel = damageLevel;
+        healthFill.fillAmount = percentage;
+        if (percentage <= 0) {
+            damageLevel = 3;
+        }else if (percentage <= thresholdLevel2) {
+            damageLevel = 2;
+        }else if (percentage <= thresholdLevel1) {
+            damageLevel = 1;
+        }else {
+            damageLevel = 0;
+        }
+        
+        if(damageLevel!=lastLevel) {
+            profile.sprite = sprites[damageLevel];
+        }
     }
 }
