@@ -4,6 +4,7 @@ using System.Collections;
 
 public class StatusUI : MonoBehaviour
 {
+    public GameObject dead;
     public Image profile;
     public Sprite[] sprites;
     public Sprite[] blinkSprites;
@@ -22,6 +23,7 @@ public class StatusUI : MonoBehaviour
 
     void Start()
     {
+        dead.SetActive(false);
         blinkTimer = blinkInterval;
         profileOrigin = profile.transform.position;
     }
@@ -56,6 +58,7 @@ public class StatusUI : MonoBehaviour
         healthFill.fillAmount = percentage;
         if (percentage <= 0) {
             damageLevel = 3;
+            dead.SetActive(true);
         }else if (percentage <= thresholdLevel2) {
             damageLevel = 2;
         }else if (percentage <= thresholdLevel1) {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Health: MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Health: MonoBehaviour
     Color originalColor;
 
     public StatusUI status;
+    public MonoBehaviour[] controllers;
 
     public AudioClip[] hitSounds;
 
@@ -62,9 +64,12 @@ public class Health: MonoBehaviour
 
     private IEnumerator PlayerDie()
     {
-        //disable controls
+        foreach(MonoBehaviour mb in controllers)
+        {
+            mb.enabled = false;
+        }
         yield return new WaitForSeconds(3f);
-        //reset
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void Update()
@@ -74,4 +79,12 @@ public class Health: MonoBehaviour
             iTimer -= Time.deltaTime;
         }
     }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit) {
+        if (hit.transform.tag == "Hazard" && iTimer <= 0) {
+            TakeDamage(10);
+            iTimer = 0.5f;
+        }
+    }
+
 }

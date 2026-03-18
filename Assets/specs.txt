@@ -1,27 +1,27 @@
 
-    A menu with at least two buttons
-        One must start the game by loading the first level
-        One must quit the game and close the application
-    A first-person character controller with any mobile control UI removed
-    A health system that
-        Displays the current health of the player (i.e. 100/100) as a UI element
-        Reduces the player's health whenever they receive damage (i.e. from an enemy attack, by entering a hazard zone, etc.).
-        Displays a “Game Over” screen whenever the player reaches 0 or less health
+    x A menu with at least two buttons
+    x    One must start the game by loading the first level
+    x    One must quit the game and close the application
+    x A first-person character controller with any mobile control UI removed
+    x A health system that
+    x    Displays the current health of the player (i.e. 100/100) as a UI element
+    x    Reduces the player's health whenever they receive damage (i.e. from an enemy attack, by entering a hazard zone, etc.).
+    x    Displays a “Game Over” screen whenever the player reaches 0 or less health
             This screen should also have two buttons
                 Restart, which resets the current scene
                 Quit, which returns to the main menu scene
-    A projectile or raycast interaction system. The exact nature of this system is up to you, but it must:
-        Use projectiles or raycasts
-        Upon hitting another object of interest, affect that object in some way. For example:
-            Deal damage to an enemy
-            Allow the player to “pick up” an object by handing it to them
-    Locked doors that open when the player has completed a goal (i.e., killing all enemies in a room, bringing a key from one location to another, etc.).
-    Minimum 3 levels
-        The first one should be loaded when the player presses the Play/Start button in the menu
-        The other two must automatically load when the player completes a goal
-            This could be getting to the end of the level, collecting powerups, etc.
-        Each level must contain geometry that the player can jump around on
-        After completing the last level, the game must automatically load the menu
+    x A projectile or raycast interaction system. The exact nature of this system is up to you, but it must:
+    x    Use projectiles or raycasts
+    x    Upon hitting another object of interest, affect that object in some way. For example:
+    x        Deal damage to an enemy
+    x        Allow the player to “pick up” an object by handing it to them
+    x Locked doors that open when the player has completed a goal (i.e., killing all enemies in a room, bringing a key from one location to another, etc.).
+    x Minimum 3 levels
+    x    The first one should be loaded when the player presses the Play/Start button in the menu
+    x    The other two must automatically load when the player completes a goal
+    x        This could be getting to the end of the level, collecting powerups, etc.
+    x    Each level must contain geometry that the player can jump around on
+    x    After completing the last level, the game must automatically load the menu
 
  
 

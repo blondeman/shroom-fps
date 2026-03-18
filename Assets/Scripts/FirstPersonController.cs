@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// First Person Character Controller
@@ -29,6 +30,7 @@ public class FirstPersonController : MonoBehaviour
     [Range(0f, 90f)]  public float maxPitch            =  85f;
     public bool invertY = false;
     private Animator anim;
+    public GameObject pause;
 
     [Header("Movement")]
     public float walkSpeed   = 5f;
@@ -82,6 +84,11 @@ public class FirstPersonController : MonoBehaviour
         Cursor.visible   = false;
     }
 
+    void Start()
+    {
+        pause.SetActive(false);
+    }
+
     void Update()
     {
         HandleCursorLock();
@@ -99,7 +106,13 @@ public class FirstPersonController : MonoBehaviour
             bool locked = Cursor.lockState == CursorLockMode.Locked;
             Cursor.lockState = locked ? CursorLockMode.None : CursorLockMode.Locked;
             Cursor.visible   = locked;
+            pause.SetActive(locked);
         }
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     // ── Mouse look ────────────────────────────────────────────────────────────
