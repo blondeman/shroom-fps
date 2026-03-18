@@ -16,6 +16,8 @@ public class Health: MonoBehaviour
 
     public StatusUI status;
 
+    public AudioClip[] hitSounds;
+
     void Start()
     {
         if (renderer) originalColor = renderer.material.color;
@@ -27,6 +29,7 @@ public class Health: MonoBehaviour
     {
         if (iTimer <= 0)
         {
+            AudioSource.PlayClipAtPoint(hitSounds[Random.Range(0, hitSounds.Length-1)], transform.position);
             currentHealth -= damage;
             iTimer = iTime;
             if (renderer) StartCoroutine(DamageTint());

@@ -54,7 +54,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.3
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -82,7 +82,7 @@ MonoBehaviour:
   chaseDistance: 15
   idleRotationSpeed: 70
   attackDistance: 1
-  attackDamage: 2
+  attackDamage: 7
 --- !u!114 &7644288939245495611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +101,8 @@ MonoBehaviour:
   deathParticle: {fileID: 408283710173465049, guid: c9919b818c0dbaa43883aa66d69730b4, type: 3}
   damageTint: {r: 1, g: 0, b: 0, a: 1}
   status: {fileID: 0}
+  hitSounds:
+  - {fileID: 8300000, guid: f59f5338f2cc69648958631a52b73948, type: 3}
 --- !u!1001 &1709555893335824747
 PrefabInstance:
   m_ObjectHideFlags: 0

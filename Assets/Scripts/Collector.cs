@@ -40,6 +40,7 @@ public class Collector : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    AudioSource.PlayClipAtPoint(PickupAudioClips[Random.Range(0, PickupAudioClips.Length-1)], transform.position, 1);
                     mc.AddMushroom();
                 }
             }
@@ -55,7 +56,7 @@ public class Collector : MonoBehaviour
             GameObject.Destroy(other.gameObject);
             SetScore();
 
-            //AudioSource.PlayClipAtPoint(PickupAudioClips[Random.Range(0, PickupAudioClips.Length-1)], transform.position, 1);
+            AudioSource.PlayClipAtPoint(PickupAudioClips[Random.Range(0, PickupAudioClips.Length-1)], transform.position, 1);
         }
     }
 

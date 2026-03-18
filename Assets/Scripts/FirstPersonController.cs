@@ -28,6 +28,7 @@ public class FirstPersonController : MonoBehaviour
     [Range(-90f, 0f)] public float minPitch            = -85f;
     [Range(0f, 90f)]  public float maxPitch            =  85f;
     public bool invertY = false;
+    private Animator anim;
 
     [Header("Movement")]
     public float walkSpeed   = 5f;
@@ -67,6 +68,7 @@ public class FirstPersonController : MonoBehaviour
     void Awake()
     {
         cc = GetComponent<CharacterController>();
+        anim = GetComponentInChildren<Animator>();
 
         if (playerCamera == null)
             playerCamera = GetComponentInChildren<Camera>();
@@ -215,6 +217,9 @@ public class FirstPersonController : MonoBehaviour
         // Combine horizontal + vertical
         Vector3 motion = moveVelocity + Vector3.up * velocity.y;
         cc.Move(motion * Time.deltaTime);
+
+        float currentSpeed = cc.velocity.magnitude;
+        anim.SetFloat("Speed", Mathf.Clamp01(currentSpeed / sprintSpeed));
     }
 
     // ── Gizmos (editor only) ──────────────────────────────────────────────────
