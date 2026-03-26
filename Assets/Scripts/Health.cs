@@ -58,17 +58,17 @@ public class Health: MonoBehaviour
             Destroy(gameObject);
         }else
         {
-            StartCoroutine(PlayerDie());
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible   = true;
+            foreach(MonoBehaviour mb in controllers)
+            {
+                mb.enabled = false;
+            }
         }
     }
 
-    private IEnumerator PlayerDie()
+    public void Respawn()
     {
-        foreach(MonoBehaviour mb in controllers)
-        {
-            mb.enabled = false;
-        }
-        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

@@ -7,9 +7,9 @@
     x    Displays the current health of the player (i.e. 100/100) as a UI element
     x    Reduces the player's health whenever they receive damage (i.e. from an enemy attack, by entering a hazard zone, etc.).
     x    Displays a “Game Over” screen whenever the player reaches 0 or less health
-            This screen should also have two buttons
-                Restart, which resets the current scene
-                Quit, which returns to the main menu scene
+    x        This screen should also have two buttons
+    x            Restart, which resets the current scene
+    x            Quit, which returns to the main menu scene
     x A projectile or raycast interaction system. The exact nature of this system is up to you, but it must:
     x    Use projectiles or raycasts
     x    Upon hitting another object of interest, affect that object in some way. For example:

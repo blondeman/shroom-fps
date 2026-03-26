@@ -9,6 +9,7 @@ public class MushroomCircle : MonoBehaviour
     public GameObject portalFrame;
 
     public int currentMushrooms;
+    public AudioClip sfx;
 
     void Start()
     {
@@ -45,5 +46,6 @@ public class MushroomCircle : MonoBehaviour
     {
         portal.SetActive(true);
         portalFrame.SetActive(false);
+        AudioSource.PlayClipAtPoint(sfx, transform.position);
     }
 }
